@@ -1,0 +1,70 @@
+"use client"
+
+
+
+import { useState } from "react";
+
+
+import { Milk_type, Sugar_level } from "@/app/generated/prisma";
+import { useCartStore } from "../../_hooks/cart-store";
+import Dropdown from "./SelectDropdown";
+import Button from "@/ui/Button";
+
+type MenuProps = {
+    name: string
+    price: number
+    description: string
+    id: string
+}
+
+export default function MenuCard({ name, price, description, id }: MenuProps) {
+
+    const { addItem, items } = useCartStore();
+    const [milk, setMilk] = useState<Milk_type>("whole");
+    const [sugar, setSugar] = useState<Sugar_level>("less");
+    const cartItems = items.find((item) => item.id === id);
+    const quantity = cartItems ? cartItems.quantity : 0;
+
+    const onAddItem = () => {
+        addItem({
+            id: id,
+            name,
+            quantity: 1,
+            price,
+            milk,
+            sugar
+        })
+    }
+
+
+
+
+
+    return (
+        <div>
+            <h1 className="text-2xl font-bold">{name}</h1>
+            <p className="mt-3 max-w-3xl text-sm font-light">{description}</p>
+            <p className="mt-2">Price: ${price}</p>
+            <p className="mt-2">Cart quantity: {quantity}</p>
+
+            <div className="mt-5 flex-col flex gap-5">
+                <Dropdown  onChange={(v) => setMilk(v as Milk_type)} type="milk" />
+                <Dropdown  onChange={(v) => setSugar(v as Sugar_level)} type="sugar" />
+                    <div className="flex gap-2">
+
+                        <Button text="Add" onClick={()=>onAddItem()}/>
+
+
+                    </div>
+               
+
+
+            </div>
+
+
+
+
+
+        </div>
+    )
+}

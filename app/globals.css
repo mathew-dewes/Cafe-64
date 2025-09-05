@@ -13,12 +13,17 @@
   --color-accent-500:#409BD3
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  h1 {
+    @apply text-2xl font-bold
   }
-} */
+
+  p, li {
+    @apply font-light
+  }
+}
+
+
 
 body {
   background: var(--background);

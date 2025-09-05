@@ -1,22 +1,28 @@
+import getProducts from "@/server/queries/product";
+import CartPreview from "./_components/CartPreview";
+import MenuCard from "./_components/MenuCard";
 
-import getProducts from "@/server/queries/product"
+
 
 export default async function page(){
 
-    const products = await getProducts();
+const products = await getProducts();
 
-    console.log(products);
 
-    
-    
+
     return (
-        <div>
-            <h1>Menu</h1>
-            <ul>
-                {products?.map((product)=>{
-                    return<li key={product.id}>{product.name}</li>
-                })}
-            </ul>
+        <div className="flex gap-30">
+  
+            <div className="mt-10 flex flex-col gap-20">
+  {products?.map((product)=>{
+                return <MenuCard id={product.id} description={product.description} key={product.id} name={product.name} price={product.price}/>
+            })}
+            </div>
+                      <CartPreview/>
+        
+      
+          
+      
         </div>
     )
 }
