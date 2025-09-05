@@ -35,7 +35,7 @@ export default function RootLayout({
         className={`${inter.variable} ${passions_Conflict.variable} antialiased`}
       >
               <Navbar/>
-        <main className="mx-10">
+        <main className="mx-10 mt-10">
 
         {children}
         </main>
