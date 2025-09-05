@@ -1,13 +1,10 @@
 
-import prisma from "@/server/db/prisma";
 import Button from "@/ui/Button";
 import Link from "next/link";
 
 export default async function page(){
 
-  const users = await prisma.customer.findMany()
 
-  console.log(users);
   
 
 return (
