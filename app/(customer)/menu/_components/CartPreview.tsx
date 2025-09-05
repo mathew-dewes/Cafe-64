@@ -40,7 +40,7 @@ export default function CartPreview(){
             <p>Total Price: ${items.reduce((acc, item)=>{
                 return acc + item.price * item.quantity
             }, 0)}</p>
-            <div className="flex mt-5">
+            <div className="flex mt-5 gap-3">
                 <Button onClick={()=>clearCart()} text="Clear"/>
 
         <Link href={'/checkout'}><Button text="Checkout"/></Link>

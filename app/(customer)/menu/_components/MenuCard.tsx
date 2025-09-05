@@ -7,7 +7,7 @@ import { useState } from "react";
 
 import { Milk_type, Sugar_level } from "@/app/generated/prisma";
 import { useCartStore } from "../../_hooks/cart-store";
-import Dropdown from "./SelectDropdown";
+import Dropdown from "./Dropdown";
 import Button from "@/ui/Button";
 
 type MenuProps = {
@@ -47,7 +47,7 @@ export default function MenuCard({ name, price, description, id }: MenuProps) {
             <p className="mt-2">Price: ${price}</p>
             <p className="mt-2">Cart quantity: {quantity}</p>
 
-            <div className="mt-5 flex-col flex gap-5">
+            <div className="mt-8 flex  gap-5 flex-col">
                 <Dropdown  onChange={(v) => setMilk(v as Milk_type)} type="milk" />
                 <Dropdown  onChange={(v) => setSugar(v as Sugar_level)} type="sugar" />
                     <div className="flex gap-2">
