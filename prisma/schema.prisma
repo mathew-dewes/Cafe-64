@@ -1,0 +1,116 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+
+model Customer {
+  id        String   @id @default(cuid())
+  name      String?
+  phone     String?
+  email     String?
+  createdAt DateTime @default(now())
+
+  orders    Order[]
+}
+
+
+model Product{
+  id String @id @default(cuid())
+  created_at DateTime @default(now())
+  name String
+  description String
+  price Float
+  order_items OrderItem[]
+}
+
+
+model Order{
+  id String @id @default(cuid())
+  created_at DateTime @default(now())
+  status OrderStatus
+  paymentMethod PaymentMethod
+  paymentStatus PaymentStatus
+  total_items Int
+  total_price Int
+  customer_id String?
+  orderNumber String @unique
+
+
+  order_items OrderItem[]
+  
+  customer Customer? @relation(fields: [customer_id], references: [id])
+
+
+}
+
+model OrderItem{
+  id String @id @default(cuid())
+  created_at DateTime @default(now())
+  quantity Int
+  price Float
+  sugar_level Sugar_level
+  milk_type Milk_type
+  order_id String
+  product_id String
+
+
+  product Product @relation(fields: [product_id], references: [id])
+  order Order @relation(fields: [order_id], references: [id],onDelete: Cascade)
+
+  
+}
+
+enum Role{
+  USER
+  ADMIN
+}
+
+enum OrderStatus{
+  PENDING
+  READY 
+  COMPLETE
+}
+
+enum PaymentMethod {
+  card
+  counter
+}
+
+enum PaymentStatus {
+  pending   
+  paid     
+  failed    
+}
+
+
+enum Sugar_level{
+  none
+  less
+  normal
+  extra
+}
+
+enum Milk_type{
+whole
+skim
+soy
+almond
+oat
+lactose_free
+}
+
+
+
