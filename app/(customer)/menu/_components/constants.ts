@@ -13,6 +13,11 @@ export const sugarLevel = [
     {value: "extra", text: "Extra"},
 ]
 
+export const Size = [
+  {value: "MEDIUM", text:"Medium"},
+  {value:"LARGE", text: "Large"}
+]
+
 
 
 export const orderStatus = [

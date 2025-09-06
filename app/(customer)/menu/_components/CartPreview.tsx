@@ -15,13 +15,13 @@ export default function CartPreview(){
 
     return (
         <div className="mt-10">
-            <h1 className="font-bold text-xl">Cart preview:</h1>
+            <h1 className="font-bold text-xl">Cart:</h1>
             {items.map((item, key)=>{
                 return (
                     <div className="mt-5 flex items-center gap-3" key={key}>
-                        <p>{item.name} x {item.quantity} - ({item.milk} milk, {item.sugar} sugar) - ${item.price * item.quantity}</p>
+                        <p>{item.name} x {item.quantity} - ({item.milk} milk, {item.sugar} sugar, size: {item.size}) - ${item.price * item.quantity}</p>
                         <div>
-                            <button onClick={()=>removeItem(item.id, item.milk, item.sugar)} className="flex gap-1 items-center mb-1 cursor-pointer hover:text-accent-500">
+                            <button onClick={()=>removeItem(item.id, item.milk, item.sugar, item.size)} className="flex gap-1 items-center mb-1 cursor-pointer hover:text-accent-500">
 
     <p className="mt-2 text-sm font-light">Remove</p>
                             </button>

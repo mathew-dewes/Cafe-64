@@ -5,7 +5,7 @@
 import { useState } from "react";
 
 
-import { Milk_type, Sugar_level } from "@/app/generated/prisma";
+import { Drink_size, Milk_type, Sugar_level } from "@/app/generated/prisma";
 import { useCartStore } from "../../_hooks/cart-store";
 import Dropdown from "./Dropdown";
 import Button from "@/ui/Button";
@@ -22,17 +22,20 @@ export default function MenuCard({ name, price, description, id }: MenuProps) {
     const { addItem, items } = useCartStore();
     const [milk, setMilk] = useState<Milk_type>("whole");
     const [sugar, setSugar] = useState<Sugar_level>("less");
+    const [size, setSize] = useState<Drink_size>("MEDIUM")
     const cartItems = items.find((item) => item.id === id);
     const quantity = cartItems ? cartItems.quantity : 0;
+    const displayPrice = price + (size === "LARGE" ? 1 : 0);
 
     const onAddItem = () => {
         addItem({
             id: id,
             name,
             quantity: 1,
-            price,
+            price: displayPrice,
             milk,
-            sugar
+            sugar,
+            size
         })
     }
 
@@ -50,6 +53,7 @@ export default function MenuCard({ name, price, description, id }: MenuProps) {
             <div className="mt-8 flex  gap-5 flex-col">
                 <Dropdown  onChange={(v) => setMilk(v as Milk_type)} type="milk" />
                 <Dropdown  onChange={(v) => setSugar(v as Sugar_level)} type="sugar" />
+                    <Dropdown onChange={(v)=> setSize(v as Drink_size)} type="size" />
                     <div className="flex gap-2">
 
                         <Button text="Add" onClick={()=>onAddItem()}/>

@@ -1,5 +1,5 @@
 
-import { Milk_type, Sugar_level } from "@/app/generated/prisma";
+import { Drink_size, Milk_type, Sugar_level } from "@/app/generated/prisma";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -10,12 +10,13 @@ type CartItem = {
   price: number;
   milk?: Milk_type;
   sugar?: Sugar_level;
+  size?: Drink_size;
 };
 
 interface CartStore {
   items: CartItem[];
   addItem: (item: CartItem) => void;
-  removeItem: (id: string, milk?:Milk_type, sugar?: Sugar_level) => void;
+  removeItem: (id: string, milk?:Milk_type, sugar?: Sugar_level, size?: Drink_size) => void;
   clearCart: () => void;
 }
 
@@ -28,7 +29,8 @@ export const useCartStore = create<CartStore>()(
           const existing = state.items.find((i) => 
             i.id === newItem.id && 
             i.milk === newItem.milk &&
-            i.sugar === newItem.sugar 
+            i.sugar === newItem.sugar &&
+            i.size === newItem.size 
           
           );
 
@@ -46,10 +48,10 @@ export const useCartStore = create<CartStore>()(
       };
         }),
 
-      removeItem: (id, milk, sugar) =>
+      removeItem: (id, milk, sugar, size) =>
         set((state) => {
           const existing = state.items.find((i)=>
-            i.id === id && i.milk === milk && i.sugar === sugar
+            i.id === id && i.milk === milk && i.sugar === sugar && i.size === size
           );
 
           if (!existing) return state;
@@ -63,7 +65,7 @@ export const useCartStore = create<CartStore>()(
 
              return {
             items: state.items.filter(
-              (i) => !(i.id === id && i.milk === milk && i.sugar === sugar)
+              (i) => !(i.id === id && i.milk === milk && i.sugar === sugar && i.size === size)
             ),
           };
         }),

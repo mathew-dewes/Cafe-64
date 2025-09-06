@@ -1,6 +1,6 @@
 "use server"
 
-import { Milk_type, OrderStatus, Sugar_level } from "@/app/generated/prisma";
+import { Drink_size, Milk_type, OrderStatus, Sugar_level } from "@/app/generated/prisma";
 import prisma from "../db/prisma"
 
 import { revalidatePath } from "next/cache";
@@ -15,6 +15,7 @@ type CartItem = {
   price: number;
   milk?: Milk_type;
   sugar?: Sugar_level;
+  size?: Drink_size
 };
 
 export async function placeOrder(customer_id: string, items: CartItem[], status: OrderStatus){
@@ -36,6 +37,7 @@ export async function placeOrder(customer_id: string, items: CartItem[], status:
                   create: items.map((item)=>({
                     quantity: item.quantity,
                     price: item.price,
+                    size: item.size,   
                     milk_type: item.milk ?? Milk_type.whole,
                     sugar_level: item.sugar ?? Sugar_level.less,
                     product: {

@@ -31,10 +31,14 @@ model Product{
   id String @id @default(cuid())
   created_at DateTime @default(now())
   name String
-  description String
+  description String?
   price Float
+
   order_items OrderItem[]
 }
+
+
+
 
 
 model Order{
@@ -63,9 +67,9 @@ model OrderItem{
   price Float
   sugar_level Sugar_level
   milk_type Milk_type
+  size Drink_size @default(MEDIUM)
   order_id String
   product_id String
-
 
   product Product @relation(fields: [product_id], references: [id])
   order Order @relation(fields: [order_id], references: [id],onDelete: Cascade)
@@ -101,6 +105,11 @@ enum Sugar_level{
   less
   normal
   extra
+}
+
+enum Drink_size {
+  MEDIUM
+  LARGE
 }
 
 enum Milk_type{
