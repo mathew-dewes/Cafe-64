@@ -20,7 +20,7 @@ export default function PayAtCounterButton({customer_id}:{customer_id:string}){
         
 
     async function handleClick(){
-        const order = await placeOrder(customer_id, items, "READY");
+        const order = await placeOrder(customer_id, items, "READY", "counter");
         clearAndRedirect(`/confirmation/success/${order.id}`)
         
 

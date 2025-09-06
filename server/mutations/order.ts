@@ -1,6 +1,6 @@
 "use server"
 
-import { Drink_size, Milk_type, OrderStatus, Sugar_level } from "@/app/generated/prisma";
+import { Drink_size, Milk_type, OrderStatus, PaymentMethod, Sugar_level } from "@/app/generated/prisma";
 import prisma from "../db/prisma"
 
 import { revalidatePath } from "next/cache";
@@ -18,14 +18,14 @@ type CartItem = {
   size?: Drink_size
 };
 
-export async function placeOrder(customer_id: string, items: CartItem[], status: OrderStatus){
+export async function placeOrder(customer_id: string, items: CartItem[], status: OrderStatus, payment_method: PaymentMethod ){
 
   const orderNumber = Math.floor(100000 + Math.random() * 900000).toString();
     try {
         const order = await prisma.order.create({
             data: {
-              paymentStatus:"paid",
-              paymentMethod:"counter",
+              paymentStatus:"pending",
+              paymentMethod: payment_method,
                 customer_id,
                 orderNumber,
                 status,

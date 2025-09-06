@@ -35,7 +35,8 @@ export default async function SuccessPage({ searchParams }:{
         id: order_id
       },
       data:{
-        status:"READY"
+        paymentStatus:"paid",
+  
       },
       include:
       {customer: true}
