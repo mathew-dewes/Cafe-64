@@ -31,7 +31,7 @@ model Product{
   id String @id @default(cuid())
   created_at DateTime @default(now())
   name String
-  description String?
+  description String
   price Float
 
   order_items OrderItem[]

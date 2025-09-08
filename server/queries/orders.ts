@@ -1,6 +1,7 @@
 "use server"
 
-import { OrderStatus } from "@/generated/prisma";
+
+import { OrderStatus } from "@/app/generated/prisma";
 import prisma from "../db/prisma";
 
 type OrderFilters = {

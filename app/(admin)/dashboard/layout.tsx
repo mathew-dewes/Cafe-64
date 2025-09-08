@@ -1,6 +1,7 @@
 "use client"
 
-// import Toast from "@/components/ToastContainer"
+
+import Toast from "@/ui/ToastContainer"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -45,7 +46,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
       <main className="flex-1 px-12 mt-4 pt-2 overflow-y-auto">
         {children}
       </main>
-{/* <Toast/> */}
+<Toast/>
     </div>
   )
 }
