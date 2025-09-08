@@ -1,14 +1,16 @@
+"use client"
+
 import { OrderWithItems } from "@/server/types/types";
-import MarkCompleteCheckbox from "./MarkOrderComplete";
+import { format } from "date-fns";
+import StatusDropdown from "./StatusDropdown";
 
 
 
 
 export default function OrderCard(
     {order}:{order: OrderWithItems}){
-
-                const date = order.created_at.toLocaleDateString();
-                const time = order.created_at.toLocaleTimeString();
+  const date = format(new Date(order.created_at), "dd/MM/yyyy");
+  const time = format(new Date(order.created_at), "HH:mm");
     return (
                  <div className={`font-light flex gap-10 mt-5 rounded-xl w-fit py-8 rounded-r-xl
                     ${order.status === "PENDING" ? "border-r-orange-500" : "border-r-green-500"}`}>
@@ -20,8 +22,8 @@ export default function OrderCard(
                         <p className="mt-3"><span className="font-semibold">Order status:</span> {order.status}</p>
                         <p><span className="font-semibold">Payment method:</span> {order.paymentMethod}</p>
                         <p className="mt-5"><span className="font-semibold">Payment status:</span>{order.paymentStatus}</p>
-                       
-                        <MarkCompleteCheckbox orderId={order.id} initialStatus={order.status}/>
+                    
+                    <StatusDropdown currentStatus={order.status} orderId={order.id}/>
                    
                         </div>
                        <div>

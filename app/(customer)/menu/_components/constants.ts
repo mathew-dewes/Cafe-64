@@ -18,8 +18,6 @@ export const Size = [
   {value:"LARGE", text: "Large"}
 ]
 
-
-
 export const orderStatus = [
     { value: "", text: "View All" },
   { value: "READY", text: "Ready" },

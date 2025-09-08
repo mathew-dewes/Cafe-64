@@ -1,8 +1,8 @@
 import { Milk_type, Sugar_level } from "@/app/generated/prisma";
-import { milkType, Size, sugarLevel } from "./constants";
+import { milkType,  Size, sugarLevel } from "./constants";
 
 type DropdownProps = {
-    type: "milk" | "sugar" | "size";
+    type: "milk" | "sugar" | "size" | "status";
     onChange?: (value: string) => void;
     value?: Milk_type | Sugar_level;
 };
@@ -14,10 +14,8 @@ export default function Dropdown({ type, onChange, value }: DropdownProps) {
         dropDownType = milkType
     } else if (type === "size") {
         dropDownType = Size
-    } else {
+    }  else{
         dropDownType = sugarLevel
-
-
     }
 
     const defaultValues = type === "milk" ? "whole" : "less";

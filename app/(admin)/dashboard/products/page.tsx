@@ -1,5 +1,6 @@
 
 import { getProducts } from "@/server/queries/products"
+import Button from "@/ui/Button";
 import Link from "next/link";
 
 export default async function page(){
@@ -12,7 +13,8 @@ export default async function page(){
             <div className="flex items-center gap-5">
                 <h1 className="font-semibold">Actions:</h1>
                 <Link href={`/dashboard/products/add`}>
-                <button className="px-4 py-2 cursor-pointer border rounded">Add product</button>
+                <Button text="Add product"/>
+    
                 </Link>
           
 
@@ -28,7 +30,9 @@ export default async function page(){
                             <p className="font-light mb-3 mt-1 w-150">{product.description}</p>
                             <div className="flex items-center gap-10">
      <p>Price: ${product.price}</p>
-     <Link href={`/dashboard/products/edit/${product.id}`}><button className="border p-2 text-sm rounded hover:bg-accent-500 cursor-pointer">Edit product</button></Link>
+     <Link href={`/dashboard/products/edit/${product.id}`}>
+     <Button text="Edit product"/>
+</Link>
      
                             </div>
                        

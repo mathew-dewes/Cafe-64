@@ -69,6 +69,22 @@ export async function markOrderComplete(orderId: string) {
 }
 
 
+export async function updateOrderStatus(orderId: string, status:OrderStatus){
+  try {
+    await prisma.order.update({
+      where:{
+        id: orderId
+      },
+      data:{status}
+    });
+    revalidatePath('/dashboard')
+  } catch (error) {
+    console.log(error);
+    return
+    
+  }
+}
+
 export async function filterOrders(formData: FormData){
     const status = formData.get("status") as string | null;
   const orderBy = formData.get("orderBy") as string | null;

@@ -8,14 +8,18 @@ import { usePathname } from "next/navigation"
 
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname()
+  const pathname = usePathname();
+  const basePath = pathname.split("?")[0]; 
 
   const navItems = [
     { name: "Analytics", href: "/dashboard/analytics" },
-    { name: "Orders", href: "/dashboard/orders" },
+    { name: "Orders", href: "/dashboard/orders?status=READY" },
     { name: "Products", href: "/dashboard/products" },
 
   ]
+
+  console.log(pathname);
+  
 
   return (
     <div className="flex h-screen">
@@ -28,8 +32,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               key={item.name}
               href={item.href}
               className={
-                `block px-4 py-2 hover:bg-gray-800 transition-colors",
-                ${pathname.startsWith(item.href) ? "bg-gray-800 font-semibold" : ""}`}
+                `block px-4 py-2 hover:bg-gray-800 transition-colors,
+                ${basePath.startsWith(item.href.split("?")[0]) ? "bg-gray-800 font-semibold" : ""}`}
             >
               {item.name}
             </Link>

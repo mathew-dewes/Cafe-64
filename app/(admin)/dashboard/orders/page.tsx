@@ -16,9 +16,6 @@ export default async function page({
   
   
 const orders = await getOrders(filters);
-
-console.log(orders);
-
     
 
 

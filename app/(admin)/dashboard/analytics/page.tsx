@@ -1,65 +1,61 @@
-import { getRevenueStats } from "@/server/queries/analytics"
+import { getCustomerAnalytics, getProductInsights, getStats } from "@/server/queries/analytics"
 
 
 
 export default async function page() {
 
-    const stats= await getRevenueStats();
+    const [stats, productInsights, customerAnalytics] = await Promise.all([
+    getStats(),
+    getProductInsights(),
+    getCustomerAnalytics()
+  ]);
 
-    console.log(stats);
-    
     return (
-        <div>
+        <div className="w-1/2">
 
-            <div className="flex gap-30">
+            <div className="flex justify-between">
                 <div>
-                    <h2 className="mb-2">Revenue</h2>
+                    <h1 className="mb-2">Revenue</h1>
                     <p>Daily: ${stats.dailyRevenue}</p>
                     <p>Weekly: ${stats.weeklyRevenue}</p>
                     <p>Monthly: ${stats.monthlyRevenue}</p>
                 </div>
-                <div>
-                    <h2 className="mb-2">Order stats</h2>
+                <div className="text-right">
+                    <h1 className="mb-2">Order stats</h1>
                     <p>Average order value: ${stats.averageOrderValue}</p>
                     <p>Open orders: {stats.openOrders}</p>
                     <p>Compeleted orders: {stats.openOrders}</p>
-                    <p>Canceled orders: {stats.canceledOrders}</p>
                     <p>Total orders: {stats.totalOrders}</p>
                 </div>
             </div>
-            <div className="mt-20">
-            <h2 className="mb-2">Product insights</h2>
-            <div className=" flex gap-10">
-
+            <div className="mt-20 flex justify-between">
                 <div>
-                    <p className="font-medium">Top selling products:</p>
-                    <div className="mt-1">
-                        <p className="text-sm">Lorem ipsum dolor sit amet.</p>
-                        <p className="text-sm">Lorem ipsum dolor sit amet.</p>
-                        <p className="text-sm">Lorem ipsum dolor sit amet.</p>
+      <h1 className="mb-2">Top selling products</h1>
+<div className="mt-2">
+                        {productInsights.topSelling.map((product, key)=>{
+                            return <p key={key} className="text-md"><span className="font-semibold">{product.name}</span> - sales x {product.sales}</p>
+                        })}
+            
                     </div>
-
                 </div>
-                <div>
-                    <p className="font-medium">Low selling products:</p>
-                    <div className="mt-1">
-                        <p className="text-sm">Lorem ipsum dolor sit amet.</p>
-                        <p className="text-sm">Lorem ipsum dolor sit amet.</p>
-                        <p className="text-sm">Lorem ipsum dolor sit amet.</p>
-                    </div>
+      
 
-                </div>
+           
+ 
 
-            </div>
-            </div>
-            <div className="mt-10">
-       <h2>Customer analytics:</h2>
-       <p>Highest spending customers:</p>
-       <p>Tom</p>
-       <p>Dick</p>
-       <p>Harry</p>
+                   <div className="text-right">
+       <h1>Highest spending customers</h1>
+       <div className="mt-2">
+
+      {customerAnalytics.highestSpending.map((customer, key)=>{
+        return <p className="text-md" key={key}><span className="font-semibold">{customer.name} </span>- spend: ${customer.spend}</p>
+      })}
+       </div>
+  
 
             </div>
+            </div>
+   
      
 
 
