@@ -11,19 +11,25 @@ import { useCartStore } from "../../_hooks/cart-store";
 export default function CartPreview(){
     const {items, removeItem, clearCart} = useCartStore();
 
-    if (items.length < 1) return
+    if (items.length < 1) return (
+        <div className="mt-8">
+            <h2 className="font-bold">Cart:</h2>
+            <p className="mt-2">Your cart is empty. Add items to see them here</p>
+        </div>
+    )
 
     return (
-        <div className="mt-10">
-            <h1 className="font-bold text-xl">Cart:</h1>
-            {items.map((item, key)=>{
+        <div className="mt-8">
+          <h2 className="font-bold">Cart:</h2>
+            <div className="flex flex-col gap-1 mt-2">
+ {items.map((item, key)=>{
                 return (
-                    <div className="mt-5 flex items-center gap-3" key={key}>
+                    <div className="flex items-center gap-3" key={key}>
                         <p>{item.name} x {item.quantity} - ({item.milk} milk, {item.sugar} sugar, size: {item.size}) - ${item.price * item.quantity}</p>
                         <div>
                             <button onClick={()=>removeItem(item.id, item.milk, item.sugar, item.size)} className="flex gap-1 items-center mb-1 cursor-pointer hover:text-accent-500">
 
-    <p className="mt-2 text-sm font-light">Remove</p>
+    <p className="mt-1 text-sm font-light">Remove</p>
                             </button>
 
                         </div>
@@ -33,7 +39,9 @@ export default function CartPreview(){
                     </div>
                 )
             })}
-            <p className="mt-10">Total items: {items.reduce((acc, item)=>{
+            </div>
+           
+            <p className="mt-3">Total items: {items.reduce((acc, item)=>{
                 return  item.quantity + acc
             }, 0)}</p>
 

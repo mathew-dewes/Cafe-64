@@ -23,8 +23,11 @@ export default function MenuCard({ name, price, description, id }: MenuProps) {
     const [milk, setMilk] = useState<Milk_type>("whole");
     const [sugar, setSugar] = useState<Sugar_level>("less");
     const [size, setSize] = useState<Drink_size>("MEDIUM")
-    const cartItems = items.find((item) => item.id === id);
-    const quantity = cartItems ? cartItems.quantity : 0;
+    
+    // const cartItems = items.find((item) => item.id === id);
+   const quantity = items
+  .filter((item) => item.id === id)
+  .reduce((acc, item) => acc + item.quantity, 0);
     const displayPrice = price + (size === "LARGE" ? 1 : 0);
 
     const onAddItem = () => {
