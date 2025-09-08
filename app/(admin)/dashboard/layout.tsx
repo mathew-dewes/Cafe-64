@@ -35,11 +35,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             </Link>
           ))}
         </nav>
-        <div className="p-4 border-t border-gray-700">
-          <button className="w-full bg-red-600 hover:bg-red-500 py-2 rounded text-sm">
-            Logout
-          </button>
-        </div>
+  
       </aside>
 
       {/* Main content */}

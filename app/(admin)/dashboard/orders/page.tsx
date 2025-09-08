@@ -15,7 +15,10 @@ export default async function page({
 
   
   
-const orders = await getOrders(filters)
+const orders = await getOrders(filters);
+
+console.log(orders);
+
     
 
 
@@ -32,13 +35,7 @@ const orders = await getOrders(filters)
         status={filters.status as string | undefined}
         orderBy={filters.orderBy as string | undefined}
         direction={filters.direction as string | undefined}/>
-                <div className="mt-6">
-   
-                </div>
       
-
-          
-
 
             </div>
             <h1 className="text-xl font-bold mt-10">Orders:</h1>

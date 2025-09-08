@@ -18,6 +18,10 @@
     @apply text-2xl font-bold
   }
 
+  h2{
+    @apply text-xl font-semibold
+  }
+
   p, li {
     @apply font-light
   }

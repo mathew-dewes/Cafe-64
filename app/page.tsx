@@ -14,7 +14,7 @@ return (
     <div className="flex mt-20 gap-20">
       <Link href={'/menu'}><Button text="View menu"/></Link>
 
-      <Link href={'/dashboard'}><Button text="View Dashboard"/></Link>
+      <Link href={'/dashboard/analytics'}><Button text="View Dashboard"/></Link>
   
  
     </div>

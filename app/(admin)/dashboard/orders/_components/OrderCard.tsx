@@ -14,16 +14,19 @@ export default function OrderCard(
                     ${order.status === "PENDING" ? "border-r-orange-500" : "border-r-green-500"}`}>
                         <div className="flex flex-col gap-1">
  <p>{date} - {time}</p>
-      <p><span className="font-semibold">Customer:</span> {order.customer?.name}</p>
+      <p className="mt-1"><span className="font-semibold">Customer:</span> {order.customer?.name}</p>
                         <p><span className="font-semibold">Order:</span> {order.orderNumber}</p>
                         <p>Total price: ${order.total_price}</p>
-                        <p className="mt-3"><span className="font-semibold">Status:</span> {order.status}</p>
+                        <p className="mt-3"><span className="font-semibold">Order status:</span> {order.status}</p>
+                        <p><span className="font-semibold">Payment method:</span> {order.paymentMethod}</p>
+                        <p className="mt-5"><span className="font-semibold">Payment status:</span>{order.paymentStatus}</p>
+                       
                         <MarkCompleteCheckbox orderId={order.id} initialStatus={order.status}/>
                    
                         </div>
                        <div>
-                        <h2>Order items:</h2>
- <div className="flex flex-col gap-1 mt-1">
+                        <h2 className="font-semibold">Order items:</h2>
+ <div className="flex flex-col gap-1 mt-2">
                             {order.order_items?.map((item)=>{
                                 return(
                                     <div key={item.id}>

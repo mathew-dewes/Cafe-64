@@ -26,6 +26,8 @@ export async function getOrders(filters: OrderFilters){
     status: true,
     total_items: true,
     total_price: true,
+    paymentMethod: true,
+    paymentStatus: true,
     order_items: {
       select: {
         product: true,

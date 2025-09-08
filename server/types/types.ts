@@ -8,6 +8,8 @@ export type OrderWithItems = {
   status: OrderStatus;
   total_items: number;
   total_price: number;
+  paymentMethod: string;
+  paymentStatus: string
   customer?: { name: string | null } | null;
   order_items?: {
     id: string;
