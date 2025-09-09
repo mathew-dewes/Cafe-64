@@ -25,6 +25,10 @@
   p, li {
     @apply font-light
   }
+
+  b{
+    @apply font-semibold
+  }
 }
 
 

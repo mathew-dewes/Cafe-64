@@ -28,13 +28,13 @@ if (!customer) return
   return (
     <div>
       <h1 className="text-2xl font-bold">Payment</h1>
-      <p className="mt-2">Hey {customer.name}, Please confirm you details below and click on one payment methods below to proceed</p>
+      <p className="mt-2">Please confirm you details below and click on one payment methods below to proceed</p>
       <div className="mt-10">
-        <p>Customer: {customer.name}</p>
-        <p>Email: {customer.email}</p>
-        <p>Phone: {customer.phone}</p>
+        <p><b>Customer:</b> {customer.name}</p>
+        <p><b>Email:</b> {customer.email}</p>
+        <p><b>Phone:</b> {customer.phone}</p>
         <div className="mt-5">
-    <p >Order items:</p>
+    <p><b>Order items:</b></p>
     <CartList/>
         </div>
 

@@ -23,15 +23,19 @@ export default async function page({params}:
 
     return (
         <div>
-            <p>Hey {order.customer?.name}</p>
-            <h1>You order was placed successfully! Please refer to the order details below</h1>
+            <h1>You order was placed successfully!</h1>
+            <p>Please take note of your order number below and let our staff who you are upon arrival</p>
             <div className="mt-10">
-                <h1>Order: {order.orderNumber}</h1>
-                <p>Placed: {orderDate} - {orderTime}</p>
-                <p>Total items: {order.total_items}</p>
-                <p>Total price: ${order.total_price}</p>
+                <h2>Order: {order.orderNumber}</h2>
+                <div className="mt-5">
+  <p><b>Placed:</b> {orderDate} - {orderTime}</p>
+                <p><b>Total items:</b> {order.total_items}</p>
+                <p><b>Total price:</b> ${order.total_price}</p>
+                </div>
+              
             </div>
-            <p className="mt-10">Estimated pick up time: {pickUpTime}</p>
+            <p className="mt-10"><b>Estimated pick up time:</b> {pickUpTime}</p>
+            <p className="mt-2">Thanks for shopping at Cafe64 and we hope to see you again shortly</p>
             <div className="mt-20">
                 <Link href={'/'}><Button text="Return"/></Link>
 

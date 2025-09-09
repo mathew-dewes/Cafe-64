@@ -12,20 +12,20 @@ export default function CartPreview(){
     const {items, removeItem, clearCart} = useCartStore();
 
     if (items.length < 1) return (
-        <div className="mt-8">
-            <h2 className="font-bold">Cart:</h2>
-            <p className="mt-2">Your cart is empty. Add items to see them here</p>
+        <div>
+            <p>Welcome to our new ordering system!</p>
+            <p>Your cart is currently empty. Please add items from the list below to see them here</p>
         </div>
     )
 
     return (
-        <div className="mt-8">
-          <h2 className="font-bold">Cart:</h2>
+        <div className="bg-[#4B352A] p-5 rounded-2xl text-white">
+          <h2 className="font-semibold">CART</h2>
             <div className="flex flex-col gap-1 mt-2">
  {items.map((item, key)=>{
                 return (
                     <div className="flex items-center gap-3" key={key}>
-                        <p>{item.name} x {item.quantity} - ({item.milk} milk, {item.sugar} sugar, size: {item.size}) - ${item.price * item.quantity}</p>
+                        <p><span className="font-semibold">{item.name}</span> x {item.quantity} - ({item.milk} milk, {item.sugar} sugar, size: {item.size}) - ${item.price * item.quantity}</p>
                         <div>
                             <button onClick={()=>removeItem(item.id, item.milk, item.sugar, item.size)} className="flex gap-1 items-center mb-1 cursor-pointer hover:text-accent-500">
 
@@ -41,11 +41,11 @@ export default function CartPreview(){
             })}
             </div>
            
-            <p className="mt-3">Total items: {items.reduce((acc, item)=>{
+            <p className="mt-3"><b>Total items</b> x {items.reduce((acc, item)=>{
                 return  item.quantity + acc
             }, 0)}</p>
 
-            <p>Total Price: ${items.reduce((acc, item)=>{
+            <p><span className="font-semibold">Total Price:</span> ${items.reduce((acc, item)=>{
                 return acc + item.price * item.quantity
             }, 0)}</p>
             <div className="flex mt-5 gap-3">

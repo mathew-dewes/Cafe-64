@@ -16,7 +16,7 @@ export default function CartList(){
                 return (
                     <div className="mt-2 w-fit flex flex-col gap-2" key={key}>
                         <div>
-          <p>{item.name} x {item.quantity} - ({item.milk} milk, {item.sugar} sugar) - ${item.price * item.quantity}</p>
+          <p><b></b>{item.name} x {item.quantity} - ({item.milk} milk, {item.sugar} sugar) - ${item.price * item.quantity}</p>
                     <hr className="mt-1" />
                         </div>
             
