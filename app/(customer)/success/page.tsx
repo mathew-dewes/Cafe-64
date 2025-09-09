@@ -39,17 +39,18 @@ export default async function SuccessPage({ searchParams }:{
         status: "READY"
 
   
-      },
-      include:
-      {customer: true}
+      }
     });
+
+    console.log(order);
+    
 
   
 
     return (
 
       <section id="success">
-              <SuccessClient name={order.customer!.name}   />
+              <SuccessClient order={order}   />
  
       </section>
     )
