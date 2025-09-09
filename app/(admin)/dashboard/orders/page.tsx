@@ -3,6 +3,8 @@
 import { getOrders } from "@/server/queries/orders";
 import ProductFilters from "./_components/ProductFilters";
 import OrderCard from "./_components/OrderCard";
+import { isAuthenticated } from "@/server/auth/session";
+
 
 
 
@@ -13,7 +15,7 @@ export default async function page({
 }){
   const filters = await searchParams
 
-  
+await isAuthenticated()
   
 const orders = await getOrders(filters);
     

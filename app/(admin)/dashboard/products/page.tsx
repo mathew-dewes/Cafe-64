@@ -1,11 +1,17 @@
 
+import { isAuthenticated } from "@/server/auth/session";
 import { getProducts } from "@/server/queries/products"
 import Button from "@/ui/Button";
+
 import Link from "next/link";
+
 
 export default async function page(){
 
+    await isAuthenticated()
+
     const products = await getProducts();
+
 
     
     return (

@@ -1,8 +1,15 @@
+
+import { isAuthenticated } from "@/server/auth/session";
 import { getCustomerAnalytics, getProductInsights, getStats } from "@/server/queries/analytics"
 
 
 
+
+
 export default async function page() {
+
+    await isAuthenticated()
+    
 
     const [stats, productInsights, customerAnalytics] = await Promise.all([
     getStats(),

@@ -14,77 +14,66 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-
 model Customer {
   id        String   @id @default(cuid())
   name      String?
   phone     String?
-  email     String @unique
+  email     String   @unique
   createdAt DateTime @default(now())
 
-  orders    Order[]
+  orders Order[]
 }
 
-
-model Product{
-  id String @id @default(cuid())
-  created_at DateTime @default(now())
-  name String
+model Product {
+  id          String   @id @default(cuid())
+  created_at  DateTime @default(now())
+  name        String
   description String
-  price Float
+  price       Float
 
   order_items OrderItem[]
 }
 
-
-
-
-
-model Order{
-  id String @id @default(cuid())
-  created_at DateTime @default(now())
-  status OrderStatus
+model Order {
+  id            String        @id @default(cuid())
+  created_at    DateTime      @default(now())
+  status        OrderStatus
   paymentMethod PaymentMethod
   paymentStatus PaymentStatus
-  total_items Int
-  total_price Int
-  customer_id String?
-  orderNumber String @unique
-
+  total_items   Int
+  total_price   Int
+  customer_id   String?
+  orderNumber   String        @unique
 
   order_items OrderItem[]
-  
-  customer Customer? @relation(fields: [customer_id], references: [id])
-
+  customer    Customer?   @relation(fields: [customer_id], references: [id])
 
 }
 
-model OrderItem{
-  id String @id @default(cuid())
-  created_at DateTime @default(now())
-  quantity Int
-  price Float
+model OrderItem {
+  id          String      @id @default(cuid())
+  created_at  DateTime    @default(now())
+  quantity    Int
+  price       Float
   sugar_level Sugar_level
-  milk_type Milk_type
-  size Drink_size @default(MEDIUM)
-  order_id String
-  product_id String
+  milk_type   Milk_type
+  size        Drink_size  @default(MEDIUM)
+  order_id    String
+  product_id  String
 
   product Product @relation(fields: [product_id], references: [id])
-  order Order @relation(fields: [order_id], references: [id],onDelete: Cascade)
+  order   Order   @relation(fields: [order_id], references: [id], onDelete: Cascade)
 
-  
 }
 
-enum Role{
+enum Role {
   USER
   ADMIN
 }
 
-enum OrderStatus{
+enum OrderStatus {
   PENDING
-  READY 
+  READY
   COMPLETE
 }
 
@@ -94,13 +83,12 @@ enum PaymentMethod {
 }
 
 enum PaymentStatus {
-  pending   
-  paid     
-  failed    
+  pending
+  paid
+  failed
 }
 
-
-enum Sugar_level{
+enum Sugar_level {
   none
   less
   normal
@@ -112,14 +100,71 @@ enum Drink_size {
   LARGE
 }
 
-enum Milk_type{
-whole
-skim
-soy
-almond
-oat
-lactose_free
+enum Milk_type {
+  whole
+  skim
+  soy
+  almond
+  oat
+  lactose_free
 }
 
+model User {
+  id            String    @id
+  name          String
+  email         String
+  emailVerified Boolean   @default(false)
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @default(now()) @updatedAt
+  sessions      Session[]
+  accounts      Account[]
 
+  @@unique([email])
+  @@map("user")
+}
 
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now()) @updatedAt
+
+  @@map("verification")
+}

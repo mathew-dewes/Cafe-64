@@ -2,11 +2,13 @@
 
 import { getProduct } from "@/server/queries/products";
 import EditProductForm from "../../_components/EditProductForm";
+import { isAuthenticated } from "@/server/auth/session";
 
 
 export default async function page({ params }:
     { params: Promise<{ id: string }> }) {
 
+            await isAuthenticated()
     const { id } = await params;
     const product = await getProduct(id);
  
