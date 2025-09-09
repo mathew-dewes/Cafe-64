@@ -71,7 +71,7 @@ export default function LoginForm() {
 
 
             <button disabled={isSubmitting} className="bg-accent-500 text-white p-2 rounded mt-10 cursor-pointer">
-                {isSubmitting ? "Submitting" : "Sign in"}</button>
+                {isSubmitting ? "Signing in" : "Sign in"}</button>
         
 
 

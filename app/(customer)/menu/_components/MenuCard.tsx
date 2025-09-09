@@ -52,7 +52,7 @@ export default function MenuCard({ name, price, description, id }: MenuProps) {
             <p className="mt-2"><b>Price:</b> ${displayPrice}</p>
             <p className="mt-2"><b>Cart quantity:</b> {quantity}</p>
 
-            <div className="mt-8 flex  gap-5">
+            <div className="mt-8 flex flex-col sm:flex-row  gap-5">
                 <Dropdown  onChange={(v) => setMilk(v as Milk_type)} type="milk" />
                 <Dropdown  onChange={(v) => setSugar(v as Sugar_level)} type="sugar" />
          
@@ -69,7 +69,7 @@ export default function MenuCard({ name, price, description, id }: MenuProps) {
                     </div>
                     <div className="mt-10">
 
-                        <Button text="Add" onClick={()=>onAddItem()}/>
+                        <Button text="Add to cart" onClick={()=>onAddItem()}/>
                     </div>
                     
 

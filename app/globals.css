@@ -23,7 +23,7 @@
   }
 
   p, li {
-    @apply font-light
+    @apply font-light text-sm sm:text-lg
   }
 
   b{

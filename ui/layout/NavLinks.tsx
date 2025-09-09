@@ -14,7 +14,7 @@ export default function Navlinks(){
     const cartEmpty = items.length < 1
     
     return (
-        <ul className="flex gap-10 mr-50">
+        <ul className="sm:flex gap-10 mr-50 hidden">
         <Link className={`${pathName == '/' ? "text-sky-300 font-semibold" : ""}`} href={'/'}>Home</Link>
         <Link className={`${pathName == '/menu' ? "text-sky-300 font-semibold" : ""}`} href={'/menu'}>Menu</Link>
         {!cartEmpty ? <Link className={`${pathName == '/checkout' ? "text-sky-300 font-semibold" : ""}`} href={'/checkout'}>Checkout</Link>:

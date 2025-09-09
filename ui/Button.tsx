@@ -5,7 +5,8 @@ type ButtonProps = {
   submit?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   isPending?: boolean,
-  isPendingText?: string
+  isPendingText?: string,
+  danger?: boolean
 };
 
 export default function Button(
@@ -13,12 +14,15 @@ export default function Button(
         text = "Button", 
         submit = false, 
         onClick, 
-        isPending, 
+        isPending,
+        danger, 
         isPendingText}: ButtonProps){
     return (
         <div>
             
-<button type={submit ? "submit" : "button"} onClick={onClick}  className="text-white text-nowrap font-sans cursor-pointer bg-accent-500 hover:bg-accent-500 font-medium rounded-lg text-md px-2 py-2">
+<button type={submit ? "submit" : "button"} onClick={onClick}  
+className={`text-white text-nowrap font-sans cursor-pointer bg-accent-500 hover:bg-accent-500/90 font-medium rounded-lg text-sm sm:text-base px-1.5 py-1.5 sm:px-2 sm:py-2
+${danger ? "bg-red-400": ""}`}>
     {isPending ? isPendingText : text }</button>
 
         </div>

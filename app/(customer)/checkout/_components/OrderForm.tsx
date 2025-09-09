@@ -85,13 +85,13 @@ export default function OrderForm() {
                 {errors.phone?.message && <p className="text-red-500 font-medium mt-1">{errors.phone?.message}</p>}
             </div>
 
-        <div className="flex mt-5 gap-30">
+        <div className="flex mt-5 sm:gap-30 gap-10">
   <Button submit={true} text="Confirm" />
   <div className="flex gap-2">
     <Link href={'/menu'}><Button text="Go back"/></Link>
 
        
-       <Button text="Cancel" onClick={()=>clearAndRedirect('/')}/>
+       <Button danger={true} text="Cancel" onClick={()=>clearAndRedirect('/')}/>
   
 
   </div>
