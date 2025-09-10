@@ -70,18 +70,18 @@ export default function OrderForm() {
   )}
 </div>
             <div>
-                <input {...register("name")} placeholder="Full name" className="appearance-none border focus:ring-3 focus:outline-none rounded p-2 focus:ring-accent-500" type="text" name="name" />
+                <input {...register("name")} placeholder="Full name" className="appearance-none border focus:ring-3 focus:outline-none rounded p-2 focus:ring-accent-500 focus:bg-slate-100" type="text" name="name" />
                 {errors.name?.message && <p className="text-red-500 font-medium mt-1">{errors.name?.message}</p>}
 
             </div>
 
 
             <div>
-                <input {...register("email")} placeholder="Email" className="appearance-none border focus:ring-3 focus:outline-none rounded p-2 focus:ring-accent-500" type="text" name="email" />
+                <input {...register("email")} placeholder="Email" className="appearance-none border focus:ring-3 focus:outline-none rounded p-2 focus:ring-accent-500 focus:bg-slate-100" type="text" name="email" />
                 {errors.email?.message && <p className="text-red-500 font-medium mt-1">{errors.email?.message}</p>}
             </div>
             <div>
-                <input {...register("phone")} placeholder="Phone" className="appearance-none border focus:ring-3 focus:outline-none rounded p-2 focus:ring-accent-500" type="number" name="phone" />
+                <input {...register("phone")} placeholder="Phone" className="appearance-none border focus:ring-3 focus:outline-none rounded p-2 focus:ring-accent-500 focus:bg-slate-100" type="number" name="phone" />
                 {errors.phone?.message && <p className="text-red-500 font-medium mt-1">{errors.phone?.message}</p>}
             </div>
 

@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import {  Passions_Conflict, Inter } from "next/font/google";
+import { Passions_Conflict, Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/ui/layout/Navbar";
+// import Navbar from "@/ui/navigation/Navbar";
+import Header from "@/ui/layout/Header";
 
 
 
 const passions_Conflict = Passions_Conflict({
   variable: "--font-passions-sans",
   subsets: ["latin"],
-  weight:"400"
+  weight: "400"
 });
 
 const inter = Inter({
@@ -34,12 +35,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${passions_Conflict.variable} antialiased`}
       >
-              <Navbar/>
+    <Header/>
+        {/* <Navbar /> */}
         <main className="mx-10 mt-10">
 
-        {children}
+          {children}
         </main>
-  
+
       </body>
     </html>
   );
