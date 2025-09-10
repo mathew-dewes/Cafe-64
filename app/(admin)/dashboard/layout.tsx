@@ -24,9 +24,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   
 
   return (
-    <div className="flex h-screen">
+    <div className="flex lg:h-screen">
       {/* Sidebar */}
-      <aside className="hidden w-64 bg-accent-500 rounded-2xl text-gray-100 sm:flex flex-col">
+      <aside className="hidden w-64 bg-accent-500 rounded-2xl text-gray-100 lg:flex flex-col">
         <div className="p-4 text-xl font-bold">Dashboard</div>
         <nav className="flex-1">
           {navItems.map((item) => (
@@ -40,7 +40,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
               {item.name}
             </Link>
           ))}
-          <p onClick={async()=>{
+          <button onClick={async(e)=>{
+                e.stopPropagation();
 await authClient.signOut({
   fetchOptions:{
     onSuccess: ()=>
@@ -48,13 +49,20 @@ await authClient.signOut({
     
   }
 })
-          }} className="block px-4 py-2 hover:bg-gray-800 transition-colors cursor-pointer font-medium">Logout</p>
+          }} className="block px-4 py-2 hover:bg-gray-800 transition-colors cursor-pointer font-medium">Logout</button>
         </nav> 
   
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 px-12 mt-4 pt-2 overflow-y-auto">
+      <main className="lg:flex-1 lg:px-12 lg:mt-4 lg:pt-2 overflow-y-auto">
+        <h1 className="text-center lg:hidden">Dashboard</h1>
+        <div className="lg:hidden mb-5 flex justify-center gap-5 mt-2 border-b-1 p-2">
+          <Link href={'/dashboard/analytics'}>Analytics</Link>
+          <Link href={'/dashboard/orders'}>Orders</Link>
+          <Link href={'/dashboard/products'}>Products</Link>
+    
+        </div>
         {children}
       </main>
 <Toast/>

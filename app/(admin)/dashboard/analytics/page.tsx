@@ -18,7 +18,7 @@ export default async function page() {
   ]);
 
     return (
-        <div className="w-1/2">
+        <div className="lg:w-1/2">
 
             <div className="flex justify-between">
                 <div>
