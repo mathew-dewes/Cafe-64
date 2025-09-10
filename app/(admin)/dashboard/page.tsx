@@ -13,7 +13,7 @@ export default async function page(){
     if (session) redirect('/dashboard/analytics')
     return (
         <div>
-            <h1>Admin login</h1>
+            <h1 className="text-center lg:text-left">Admin login</h1>
             <LoginForm/>
         </div>
     )

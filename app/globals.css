@@ -19,7 +19,7 @@
   }
 
   h2{
-    @apply text-xl font-semibold
+    @apply text-lg sm:text-xl font-semibold 
   }
 
   p, li {

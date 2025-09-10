@@ -26,10 +26,10 @@ export default function AddProductForm(){
       
                   <div className="mt-5">
                       <p className="text-lg font-semibold">Description:</p>
-                      <textarea required  rows={5} cols={60} className="bg-white mt-1  border rounded text-black p-2" name="description" id=""></textarea>
+                      <textarea required  rows={5} cols={60} className="bg-white w-full mt-1  border rounded text-black p-2" name="description" id=""></textarea>
                       <div className="mt-5">
                           <h1 className="text-lg font-semibold">Price ($NZD)</h1>
-                          <input  name="price" type="number"  className="border bg-white p-2 rounded text-black block mt-1" />
+                          <input  name="price" type="number"  className="border bg-white p-2 w-20  rounded text-black block mt-1" />
       
                       </div>
       

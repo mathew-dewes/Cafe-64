@@ -32,7 +32,7 @@ const pickUpTime = format(addMinutes(orderDateObj, 20), "HH:mm");
   return (
      <div>
             <h1>You order was placed successfully!</h1>
-            <p>Please take note of your order number below and let our staff who you are upon arrival</p>
+            <p className="mt-2">Please take note of your order number below and let our staff who you are upon arrival</p>
             <div className="mt-10">
                 <h2>Order: {order.orderNumber}</h2>
                 <div className="mt-5">

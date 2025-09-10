@@ -11,7 +11,7 @@ import OrderForm from "./_components/OrderForm";
 export default function Page(){
         const {items} = useCartStore();
        if ( items && items.length < 1){
-            return <p>The cart is empty. Please add items from the menu page and return here</p>
+            return 
         }
 
     return (

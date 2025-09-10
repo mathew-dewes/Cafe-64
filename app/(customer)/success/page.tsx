@@ -42,8 +42,7 @@ export default async function SuccessPage({ searchParams }:{
       }
     });
 
-    console.log(order);
-    
+ 
 
   
 

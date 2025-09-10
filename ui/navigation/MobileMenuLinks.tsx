@@ -45,7 +45,7 @@ export default function MobileMenuLinks({ isMenuOpen, onClose }: ButtonProps) {
                     <div className="flex flex-col item-center gap-6">
                          <Link onClick={onClose} 
                       className={`list-none w-full text-center p-4 hover:bg-accent-500 hover:text-white
-                    transition-all cursor-pointer ${pathName.startsWith("/dashboard") ? "text-accent-500 font-bold" : ""}`} href={'/dashboard'}>Dashboard</Link>
+                    transition-all cursor-pointer ${pathName.startsWith("/dashboard") ? "text-accent-500 font-bold" : ""}`} href={'/dashboard/analytics'}>Dashboard</Link>
                        
                          <button
                               onClick={handleLogout}

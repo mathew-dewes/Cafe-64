@@ -21,10 +21,10 @@ export default function StatusDropdown({orderId, currentStatus}:
       value={currentStatus}
       onChange={(e) => handleChange(e.target.value)}
       disabled={isPending}
-      className="border px-2 py-1 rounded"
+      className={`border px-2 py-1 rounded w-28`}
     >
       {orderStatus.slice(1).map((opt) => (
-        <option key={opt.value} value={opt.value}>
+        <option className={``} key={opt.value} value={opt.value}>
           {opt.text}
         </option>
       ))}

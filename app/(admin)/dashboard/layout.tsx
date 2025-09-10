@@ -4,6 +4,7 @@ import { authClient } from "@/server/auth/auth-client";
 import Toast from "@/ui/ToastContainer"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
+import MobileNavigation from "./_components/MobileNavigation";
 
 
 
@@ -16,7 +17,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   const navItems = [
     { name: "Analytics", href: "/dashboard/analytics" },
-    { name: "Orders", href: "/dashboard/orders?status=READY" },
+    { name: "Orders", href: "/dashboard/orders" },
     { name: "Products", href: "/dashboard/products" },
 
   ]
@@ -55,14 +56,8 @@ await authClient.signOut({
       </aside>
 
       {/* Main content */}
-      <main className="lg:flex-1 lg:px-12 lg:mt-4 lg:pt-2 overflow-y-auto">
-        <h1 className="text-center lg:hidden">Dashboard</h1>
-        <div className="lg:hidden mb-5 flex justify-center gap-5 mt-2 border-b-1 p-2">
-          <Link href={'/dashboard/analytics'}>Analytics</Link>
-          <Link href={'/dashboard/orders'}>Orders</Link>
-          <Link href={'/dashboard/products'}>Products</Link>
-    
-        </div>
+      <main className="lg:flex-1 w-full lg:px-12 lg:mt-4 lg:pt-2 overflow-y-auto">
+       <MobileNavigation/>
         {children}
       </main>
 <Toast/>

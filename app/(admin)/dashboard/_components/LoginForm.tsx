@@ -47,7 +47,7 @@ export default function LoginForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-10">
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-10 text-center lg:text-left">
             <div>
                 <input defaultValue={"cafe64@admin.com"} {...register("email")} placeholder='Email' type="text" className="border rounded p-1" />
                 {errors.email &&

@@ -24,12 +24,9 @@ const orders = await getOrders(filters);
     
     return (
         <div>
-                <div className="flex items-center gap-10">
-                    <div>
-          <h1 className="font-semibold text-xl mt-6">Filters:</h1>
-       
-                    </div>
-      
+                <div className="flex flex-col items-center md:items-start">
+              
+                <h2 className="mb-3">Filters</h2>
                 <ProductFilters 
         status={filters.status as string | undefined}
         orderBy={filters.orderBy as string | undefined}
@@ -37,8 +34,8 @@ const orders = await getOrders(filters);
       
 
             </div>
-            <h1 className="text-xl font-bold mt-10">Orders:</h1>
-                        <p className="font-light">Total {orders.length}</p>
+            <h1 className="text-xl font-bold sm:mt-10 text-center sm:text-left">Orders:</h1>
+                        <p className="font-light text-center sm:text-left">Total {orders.length}</p>
             {orders.map((order)=><OrderCard order={order} key={order.id}/>)}
         </div>
     )

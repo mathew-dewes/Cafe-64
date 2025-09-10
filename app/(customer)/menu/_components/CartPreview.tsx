@@ -24,7 +24,7 @@ export default function CartPreview(){
             <div className="flex flex-col gap-1 mt-2">
  {items.map((item, key)=>{
                 return (
-                    <div className="flex flex-col md:flex-row sm:items-center gap-3 border p-3 rounded" key={key}>
+                    <div className="flex flex-col md:flex-row sm:items-center gap-3 py-3 rounded" key={key}>
                         <p><span className="font-semibold">{item.name}</span> x {item.quantity} - ({item.milk} milk, {item.sugar} sugar, size 
                         <span className="lowercase"> {item.size}</span>) - ${item.price * item.quantity}</p>
                         <div>
