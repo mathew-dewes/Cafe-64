@@ -46,13 +46,13 @@ export default function MenuCard({ name, price, description, id }: MenuProps) {
 
 
     return (
-        <div>
-            <h1 className="text-2xl font-bold">{name}</h1>
-            <p className="mt-3 max-w-3xl text-sm font-light">{description}</p>
-            <p className="mt-2"><b>Price:</b> ${displayPrice}</p>
-            <p className="mt-2"><b>Cart quantity:</b> {quantity}</p>
+        <div className="border-b-1 py-10">
+            <h1 className="text-2xl font-bold text-center md:text-left">{name}</h1>
+            <p className="mt-3 max-w-3xl text-sm text-center md:text-left">{description}</p>
+            <p className="mt-2 text-center md:text-left"><b>Price:</b> ${displayPrice}</p>
+            <p className="mt-2 text-center md:text-left"><b>Cart quantity:</b> {quantity}</p>
 
-            <div className="mt-8 flex flex-col sm:flex-row  gap-5">
+            <div className="mt-8 flex flex-col md:flex-row items-center gap-5">
                 <Dropdown  onChange={(v) => setMilk(v as Milk_type)} type="milk" />
                 <Dropdown  onChange={(v) => setSugar(v as Sugar_level)} type="sugar" />
          
@@ -61,13 +61,13 @@ export default function MenuCard({ name, price, description, id }: MenuProps) {
 
 
             </div>
-    <div className="flex gap-2 mt-5">
+    <div className="flex gap-2 mt-5 text-center">
                    <Dropdown onChange={(v)=> setSize(v as Drink_size)} type="size" />
 
 
 
                     </div>
-                    <div className="mt-10">
+                    <div className="mt-10 text-center md:text-left">
 
                         <Button text="Add to cart" onClick={()=>onAddItem()}/>
                     </div>

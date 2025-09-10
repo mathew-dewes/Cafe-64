@@ -17,8 +17,8 @@ return (
     <Image className="mt-5" src={'/cafe.jpg'} height={300} width={600} alt="Coffee image"/>
     </div>
 
-          <p className="mt-5">Open Weekdays 7am - 3pm & Weekends 8:00am - 3pm</p>
-    <div className="flex mt-20 gap-20">
+          <p className="mt-5 text-center md:text-left">Open Weekdays 7am - 3pm & Weekends 8:00am - 3pm</p>
+    <div className="flex mt-20 gap-5 md:gap-30">
       <Link href={'/menu'}><Button text="View menu"/></Link>
 
       <Link href={'/dashboard'}><Button text="View Dashboard"/></Link>

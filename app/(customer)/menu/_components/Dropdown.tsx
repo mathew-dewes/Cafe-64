@@ -20,7 +20,7 @@ export default function Dropdown({ type, onChange, value }: DropdownProps) {
 
     const defaultValues = type === "milk" ? "whole" : "less";
     return (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 m-auto sm:m-0">
             <label className="font-semibold">{type == "milk" ? "Milk" : type == "size" ?  "Size" : "Sugar level"}:</label>
             <select defaultValue={defaultValues} value={value} onChange={(e) => onChange?.(e.target.value)} className="border border-black px-1 py-2 rounded" name={type}>
                 {dropDownType.map((type, key) => {

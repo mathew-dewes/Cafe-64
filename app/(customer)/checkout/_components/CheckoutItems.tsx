@@ -15,15 +15,15 @@ export default function CheckoutItems(){
         }
     return (
         <div>
-                      <h1 className="text-2xl font-bold">Checkout</h1>
+                      <h1 className="text-center md:text-left">Checkout</h1>
 
-        <div className="mt-10">
-            <p>Order items:</p>
+        <div className="mt-10 text-center md:text-left">
+            <p className="text-lg font-semibold">Order items:</p>
             {items.map((item, key)=>{
                 return (
-                    <div className="mt-2 w-fit flex flex-col gap-2" key={key}>
+                    <div className="md:mt-3 mt-3 w-fit flex flex-col gap-2 m-auto md:m-0" key={key}>
                         <div>
-          <p><b>{item.size} {item.name}</b> x {item.quantity} - ({item.milk} milk, {item.sugar} sugar) - ${item.price * item.quantity}</p>
+          <p>{item.size} {item.name} x {item.quantity} - ({item.milk} milk, {item.sugar} sugar) - ${item.price * item.quantity}</p>
                     <hr className="mt-1" />
                         </div>
             

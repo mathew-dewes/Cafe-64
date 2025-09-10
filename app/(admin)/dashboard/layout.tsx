@@ -26,7 +26,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <aside className="w-64 bg-accent-500 rounded-2xl text-gray-100 flex flex-col">
+      <aside className="hidden w-64 bg-accent-500 rounded-2xl text-gray-100 sm:flex flex-col">
         <div className="p-4 text-xl font-bold">Dashboard</div>
         <nav className="flex-1">
           {navItems.map((item) => (

@@ -13,19 +13,20 @@ export default function CartPreview(){
 
     if (items.length < 1) return (
         <div>
-            <p>Welcome to our new ordering system!</p>
-            <p>Your cart is currently empty. Please add items from the list below to see them here</p>
+            <p className="text-center md:text-left font-semibold">Welcome to our new ordering system!</p>
+            <p className="text-center md:text-left mt-2">Your cart is currently empty. Please add items from the list below to see them here</p>
         </div>
     )
 
     return (
         <div className="bg-[#4B352A] p-5 rounded-2xl text-white">
-          <h2 className="">Cart</h2>
+          <h2 className="text-center md:text-left">Cart</h2>
             <div className="flex flex-col gap-1 mt-2">
  {items.map((item, key)=>{
                 return (
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 border p-3 rounded-xl" key={key}>
-                        <p><span className="font-semibold">{item.name}</span> x {item.quantity} - ({item.milk} milk, {item.sugar} sugar, size {item.size?.toLocaleLowerCase()}) - ${item.price * item.quantity}</p>
+                    <div className="flex flex-col md:flex-row sm:items-center gap-3 border p-3 rounded" key={key}>
+                        <p><span className="font-semibold">{item.name}</span> x {item.quantity} - ({item.milk} milk, {item.sugar} sugar, size 
+                        <span className="lowercase"> {item.size}</span>) - ${item.price * item.quantity}</p>
                         <div>
                             <button onClick={()=>removeItem(item.id, item.milk, item.sugar, item.size)} className="flex gap-1 items-center mb-1 cursor-pointer hover:text-accent-500">
 

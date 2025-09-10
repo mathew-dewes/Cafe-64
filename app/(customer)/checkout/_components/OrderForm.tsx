@@ -56,8 +56,8 @@ export default function OrderForm() {
 
     }
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-10 flex flex-col gap-5 w-60">
-          <div>
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-10 flex flex-col gap-5">
+          <div className="mb-2">
   <label className="flex items-center gap-2">
     <input
       type="checkbox"
@@ -71,18 +71,18 @@ export default function OrderForm() {
 </div>
             <div>
                 <input {...register("name")} placeholder="Full name" className="appearance-none border focus:ring-3 focus:outline-none rounded p-2 focus:ring-accent-500 focus:bg-slate-100" type="text" name="name" />
-                {errors.name?.message && <p className="text-red-500 font-medium mt-1">{errors.name?.message}</p>}
+                {errors.name?.message && <p className="text-red-500 font-medium mt-2">{errors.name?.message}</p>}
 
             </div>
 
 
             <div>
                 <input {...register("email")} placeholder="Email" className="appearance-none border focus:ring-3 focus:outline-none rounded p-2 focus:ring-accent-500 focus:bg-slate-100" type="text" name="email" />
-                {errors.email?.message && <p className="text-red-500 font-medium mt-1">{errors.email?.message}</p>}
+                {errors.email?.message && <p className="text-red-500 font-medium mt-2">{errors.email?.message}</p>}
             </div>
             <div>
                 <input {...register("phone")} placeholder="Phone" className="appearance-none border focus:ring-3 focus:outline-none rounded p-2 focus:ring-accent-500 focus:bg-slate-100" type="number" name="phone" />
-                {errors.phone?.message && <p className="text-red-500 font-medium mt-1">{errors.phone?.message}</p>}
+                {errors.phone?.message && <p className="text-red-500 font-medium mt-2">{errors.phone?.message}</p>}
             </div>
 
         <div className="flex mt-5 sm:gap-30 gap-10">

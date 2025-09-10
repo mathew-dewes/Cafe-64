@@ -37,7 +37,7 @@ export default function RootLayout({
       >
     <Header/>
         {/* <Navbar /> */}
-        <main className="mx-10 mt-10">
+        <main className="mx-10 mt-10 mb-30">
 
           {children}
         </main>

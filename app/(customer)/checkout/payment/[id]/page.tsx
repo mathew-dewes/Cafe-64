@@ -43,7 +43,18 @@ if (!customer) return
   
 
     <div className="mt-10">
-<h1>Payment methods:</h1>
+<h2>Payment methods:</h2>
+<div className="mt-3">
+<p><b>Attention:</b> To use the pay with card feature, please using the test card number below</p>
+<div className="mt-2 flex flex-col gap-1">
+    <p ><b>Card number:</b>  4242 4242 4242 4242</p>
+    <p><b>EXP:</b> Any future date</p>
+    <p><b>CVC code:</b> Any 3 digits</p>
+</div>
+
+</div>
+
+
     <div className="flex mt-5 gap-2">
     <PayAtCounterButton customer_id={customer.id}/>
     <PayByCardButton customer={customer}/>
