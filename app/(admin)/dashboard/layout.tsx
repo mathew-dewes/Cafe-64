@@ -50,7 +50,7 @@ await authClient.signOut({
     
   }
 })
-          }} className="block px-4 py-2 hover:bg-gray-800 transition-colors cursor-pointer font-medium">Logout</button>
+          }} className="block px-4 py-2 hover:bg-gray-800 transition-colors cursor-pointer font-medium w-full text-left">Logout</button>
         </nav> 
   
       </aside>
