@@ -1,5 +1,6 @@
 
-import { Drink_size, Milk_type, Sugar_level } from "@/app/generated/prisma";
+
+import { Drink_size, Milk_type, Sugar_level } from "@prisma/client";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 

@@ -1,4 +1,5 @@
-import { Milk_type, OrderStatus, Sugar_level } from "@/app/generated/prisma";
+import { Milk_type, OrderStatus, Sugar_level } from "@prisma/client";
+
 
 
 export type OrderWithItems = {

@@ -1,9 +1,10 @@
 "use client"
 
-import { OrderStatus } from "@/app/generated/prisma";
+
 import { updateOrderStatus } from "@/server/mutations/order";
 import { useTransition } from "react";
 import { orderStatus } from "./constants";
+import { OrderStatus } from "@prisma/client";
 
 export default function StatusDropdown({orderId, currentStatus}:
     {orderId: string, currentStatus: OrderStatus}

@@ -1,6 +1,7 @@
 "use client"
 
-import { Customer } from "@/app/generated/prisma";
+
+import { Customer } from "@prisma/client";
 import { useCartStore } from "../../_hooks/cart-store";
 import Button from "@/ui/Button";
 

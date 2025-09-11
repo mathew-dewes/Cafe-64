@@ -6,7 +6,8 @@ import { addMinutes, format } from "date-fns";
 import Link from "next/link"
 import { useCartStore } from "../_hooks/cart-store"
 import Button from "@/ui/Button"
-import { Order } from "@/app/generated/prisma";
+import { Order } from "@prisma/client";
+
 
 
 export default function SuccessClient({order}:{order: Order}) {

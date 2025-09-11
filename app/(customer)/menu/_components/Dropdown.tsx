@@ -1,4 +1,5 @@
-import { Milk_type, Sugar_level } from "@/app/generated/prisma";
+
+import { Milk_type, Sugar_level } from "@prisma/client";
 import { milkType,  Size, sugarLevel } from "./constants";
 
 type DropdownProps = {

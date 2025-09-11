@@ -5,10 +5,11 @@
 import { useState } from "react";
 
 
-import { Drink_size, Milk_type, Sugar_level } from "@/app/generated/prisma";
+
 import { useCartStore } from "../../_hooks/cart-store";
 import Dropdown from "./Dropdown";
 import Button from "@/ui/Button";
+import { Drink_size, Milk_type, Sugar_level } from "@prisma/client";
 
 type MenuProps = {
     name: string

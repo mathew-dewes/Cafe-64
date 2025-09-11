@@ -3,7 +3,8 @@
 import { OrderWithItems } from "@/server/types/types";
 import { format } from "date-fns";
 import StatusDropdown from "./StatusDropdown";
-import { OrderStatus } from "@/app/generated/prisma";
+import { OrderStatus } from "@prisma/client";
+
 
 
 

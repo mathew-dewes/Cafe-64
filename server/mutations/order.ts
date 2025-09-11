@@ -1,6 +1,7 @@
 "use server"
 
-import { Drink_size, Milk_type, OrderStatus, PaymentMethod, Sugar_level } from "@/app/generated/prisma";
+
+import { Drink_size, Milk_type, OrderStatus, PaymentMethod, Sugar_level } from "@prisma/client";
 import prisma from "../db/prisma"
 
 import { revalidatePath } from "next/cache";

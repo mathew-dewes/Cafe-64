@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { markOrderComplete } from "@/server/mutations/order";
-import { OrderStatus } from "@/app/generated/prisma";
+import { OrderStatus } from "@prisma/client";
+
 
 
 export default function MarkCompleteCheckbox({

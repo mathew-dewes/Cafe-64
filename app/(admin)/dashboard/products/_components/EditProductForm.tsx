@@ -6,9 +6,10 @@ import SaveButton from "./SaveProductButton";
 import { useState, useTransition } from "react";
 import { toast } from "react-toastify";
 import DeleteProductButton from "./DeleteProductButton";
-import { Product } from "@/app/generated/prisma";
+
 import { updateProduct } from "@/server/mutations/product";
 import { useRouter } from "next/navigation";
+import { Product } from "@prisma/client";
 
 
 export default function EditProductForm({ product }: { product: Product }) {
