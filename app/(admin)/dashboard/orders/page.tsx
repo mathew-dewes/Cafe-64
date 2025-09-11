@@ -1,9 +1,10 @@
 
 
-import { getOrders } from "@/server/queries/orders";
 import ProductFilters from "./_components/ProductFilters";
-import OrderCard from "./_components/OrderCard";
 import { isAuthenticated } from "@/server/auth/session";
+import OrderList from "./_components/OrderList";
+import { Suspense } from "react";
+import LoadingSpinner from "@/ui/LoadingSpinner";
 
 
 
@@ -17,7 +18,6 @@ export default async function page({
 
 await isAuthenticated()
   
-const orders = await getOrders(filters);
     
 
 
@@ -34,9 +34,10 @@ const orders = await getOrders(filters);
       
 
             </div>
-            <h1 className="text-xl font-bold sm:mt-10 text-center sm:text-left">Orders:</h1>
-                        <p className="font-light text-center sm:text-left">Total {orders.length}</p>
-            {orders.map((order)=><OrderCard order={order} key={order.id}/>)}
+            <Suspense fallback={LoadingSpinner("orders")}>
+         <OrderList filters={filters}/>
+            </Suspense>
+
         </div>
     )
 }

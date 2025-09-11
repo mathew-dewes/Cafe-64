@@ -1,13 +1,17 @@
-import getProducts from "@/server/queries/product";
+
 import CartPreview from "./_components/CartPreview";
-import MenuCard from "./_components/MenuCard";
 import Image from "next/image";
+import MenuList from "./_components/MenuList";
+import { Suspense } from "react";
+import LoadingSpinner from "@/ui/LoadingSpinner";
+
+// ui/Spinner.tsx
+
+
 
 
 
 export default async function page() {
-
-    const products = await getProducts();
 
     return (
 
@@ -28,12 +32,11 @@ export default async function page() {
             </div>
 
             <div>
+                <Suspense fallback={LoadingSpinner("products")}>
+           <MenuList/>
+                </Suspense>
    
-                <div className="my-10 pb-20 md:grid-cols-2 lg:grid flex flex-col gap-10 md:gap-40 border-t-1">
-                    {products?.map((product) => {
-                        return <MenuCard id={product.id} description={product.description!} key={product.id} name={product.name} price={product.price} />
-                    })}
-                </div>
+    
            
 
 
