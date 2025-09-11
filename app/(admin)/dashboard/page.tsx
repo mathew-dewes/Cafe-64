@@ -16,7 +16,7 @@ export default async function page(){
         <div>
             <h1 className="text-center lg:text-left">Admin login</h1>
             <LoginForm/>
-            <h1>Register</h1>
+    
 
         </div>
     )

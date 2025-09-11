@@ -6,7 +6,7 @@ import { placeOrder } from "@/server/mutations/order"
 export async function POST(req: Request) {
   try {
     const { items, email, customer_id } = await req.json()
-    const origin = req.headers.get("origin") || "http://localhost:3000"
+    const origin = req.headers.get("origin") || process.env.NEXT_PUBLIC_APP_URL!;
 
         const order = await placeOrder(customer_id, items, 'PENDING', "card")
 
