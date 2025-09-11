@@ -1,4 +1,4 @@
-// path to your auth file
+
 import { auth } from "@/auth";
 import { toNextJsHandler } from "better-auth/next-js";
 
