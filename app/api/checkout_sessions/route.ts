@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
-import { stripe } from "@/server/services/stripe"
-import { placeOrder } from "@/server/mutations/order"
+import { stripe } from "@/lib/services/stripe"
+import { placeOrder } from "@/lib/mutations/order"
 
 
 export async function POST(req: Request) {

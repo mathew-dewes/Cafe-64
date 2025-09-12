@@ -1,5 +1,5 @@
 
-import { getProducts } from "@/server/queries/products"
+import { getProducts } from "@/lib/queries/products"
 import MenuCard from "./MenuCard"
 
 

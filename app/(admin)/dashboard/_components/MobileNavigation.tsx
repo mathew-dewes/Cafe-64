@@ -7,8 +7,8 @@ export default function MobileNavigation(){
         const pathName = usePathname();
     return (
         <div>
-              <h1 className="text-center lg:hidden">Dashboard</h1>
-                    <div className="lg:hidden mb-5 flex justify-center gap-3 mt-5 bg-gray-200 rounded-2xl w-full m-auto p-3">
+      
+                    <div className="mb-5 flex mt-5 lg:mx-0 justify-center gap-3 bg-gray-200 rounded-2xl w-fit m-auto p-3">
                       <Link 
                       className={`p-3 rounded-xl ${pathName.startsWith('/dashboard/analytics') ? "bg-accent-500 text-white font-semibold" : ""}`} href={'/dashboard/analytics'}>Analytics</Link>
                       <Link className={`p-3 rounded-xl ${pathName.startsWith('/dashboard/orders') ? "bg-accent-500 text-white font-semibold" : ""}`} href={'/dashboard/orders'}>Orders</Link>

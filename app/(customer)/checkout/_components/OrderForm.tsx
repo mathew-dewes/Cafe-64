@@ -9,7 +9,7 @@ import { redirect, useRouter } from "next/navigation";
 import Link from "next/link";
 import { useCartStore } from "../../_hooks/cart-store";
 import Button from "@/ui/Button";
-import { AddCustomer } from "@/server/mutations/customer";
+import { AddCustomer } from "@/lib/mutations/customer";
 
 
 

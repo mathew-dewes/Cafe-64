@@ -1,6 +1,6 @@
 
-import prisma from '@/server/db/prisma';
-import { stripe } from '@/server/services/stripe'
+import prisma from '@/lib/db/prisma';
+import { stripe } from '@/lib/services/stripe'
 import { redirect } from 'next/navigation'
 import SuccessClient from '../_components/SuccessClient';
 

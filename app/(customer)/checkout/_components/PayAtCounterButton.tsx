@@ -2,7 +2,7 @@
 
 
 
-import { placeOrder } from "@/server/mutations/order";
+import { placeOrder } from "@/lib/mutations/order";
 import { useRouter } from "next/navigation";
 import { useCartStore } from "../../_hooks/cart-store";
 import Button from "@/ui/Button";

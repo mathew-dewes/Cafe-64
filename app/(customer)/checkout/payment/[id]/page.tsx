@@ -1,5 +1,5 @@
 
-import prisma from "@/server/db/prisma";
+import prisma from "@/lib/db/prisma";
 import CartList from "../../_components/CartList";
 import PayByCardButton from "../../_components/CardPaymentButton";
 import PayAtCounterButton from "../../_components/PayAtCounterButton";

@@ -1,5 +1,5 @@
 
-import { getOrder } from "@/server/queries/orders";
+import { getOrder } from "@/lib/queries/orders";
 import Button from "@/ui/Button";
 import Link from "next/link";
 
