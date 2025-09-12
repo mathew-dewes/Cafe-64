@@ -1,6 +1,5 @@
 
 
-import { getSession } from "@/lib/auth/session";
 import Button from "@/ui/Button";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +7,7 @@ import Link from "next/link";
 
 export default async function page(){
 
-  const session = await getSession()
+
 
 
   
@@ -25,7 +24,7 @@ return (
       <Link href={'/menu'}><Button text="View menu"/></Link>
 
 
-      {session && <Link href={'/dashboard/auth'}><Button text="View Dashboard"/></Link>}
+<Link href={'/dashboard/auth'}><Button text="View Dashboard"/></Link>
 
    
 

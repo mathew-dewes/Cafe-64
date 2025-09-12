@@ -7,10 +7,11 @@ import Link from "next/link";
 import ProductList from "./_components/ProductList";
 import { Suspense } from "react";
 import LoadingSpinner from "@/ui/LoadingSpinner";
+import { isAuthenticated } from "@/lib/auth/session";
 
 
 export default async function page(){
-
+    await isAuthenticated()
 
     
     return (

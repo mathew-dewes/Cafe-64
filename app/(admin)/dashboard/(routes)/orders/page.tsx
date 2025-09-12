@@ -4,6 +4,7 @@ import ProductFilters from "./_components/ProductFilters";
 import OrderList from "./_components/OrderList";
 import { Suspense } from "react";
 import LoadingSpinner from "@/ui/LoadingSpinner";
+import { isAuthenticated } from "@/lib/auth/session";
 
 
 
@@ -13,7 +14,9 @@ export default async function page({
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }){
-  const filters = await searchParams
+  const filters = await searchParams;
+
+      await isAuthenticated()
 
 
   
