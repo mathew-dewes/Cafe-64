@@ -7,5 +7,14 @@ export async function isAuthenticated(){
                 headers: await headers()
             });
         
-            if (!session) redirect('/dashboard')
+            if (!session) redirect('/dashboard/auth')
 }
+
+export async function getSession(){
+          return await auth.api.getSession({
+    headers: await headers(),
+  });
+
+}
+
+    

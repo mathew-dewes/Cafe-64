@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "@/lib/auth/auth-actions";
+import Link from "next/link";
 
 
 export default function AuthClientPage() {
@@ -44,10 +45,10 @@ export default function AuthClientPage() {
         <div className="max-w-md w-full space-y-8">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Hello
+              Cafe64 dashboard
             </h1>
             <p className="text-gray-600">
-             Sign in dude
+             Please login with email and password to see analytics, products and order details
             </p>
           </div>
 
@@ -122,7 +123,7 @@ export default function AuthClientPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+              className="w-full cursor-pointer flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
             >
               {isLoading ? (
                 <div className="flex items-center">
@@ -151,6 +152,14 @@ export default function AuthClientPage() {
               ) :"Login"
               }
             </button>
+
+
+<Link href={'/'}><p className="text-center mt-5 hover:text-purple-400 cursor-pointer hover:font-medium transition-all duration-500 ease-in-out">Click here to visit the home page</p>
+
+            
+</Link>
+       
+            
           </form>
 
 

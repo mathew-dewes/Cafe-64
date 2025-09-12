@@ -55,7 +55,7 @@ if (!customer) return
 </div>
 
 
-    <div className="flex mt-5 gap-2">
+    <div className="flex mt-5 gap-5">
     <PayAtCounterButton customer_id={customer.id}/>
     <PayByCardButton customer={customer}/>
 

@@ -44,7 +44,7 @@ const pickUpTime = format(addMinutes(orderDateObj, 20), "HH:mm");
               
             </div>
             <p className="mt-10"><b>Estimated pick up time:</b> {pickUpTime}</p>
-            <p className="mt-2">Thanks for shopping at Cafe64 and we hope to see you again shortly</p>
+
             <div className="mt-20">
                 <Link href={'/'}><Button text="Return"/></Link>
 

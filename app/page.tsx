@@ -1,11 +1,14 @@
 
 
+import { getSession } from "@/lib/auth/session";
 import Button from "@/ui/Button";
 import Image from "next/image";
 import Link from "next/link";
 
 
 export default async function page(){
+
+  const session = await getSession()
 
 
   
@@ -21,7 +24,12 @@ return (
     <div className="flex mt-20 gap-5 md:gap-30">
       <Link href={'/menu'}><Button text="View menu"/></Link>
 
-      <Link href={'/dashboard/auth'}><Button text="View Dashboard"/></Link>
+
+      {session && <Link href={'/dashboard/auth'}><Button text="View Dashboard"/></Link>}
+
+   
+
+
   
  
     </div>

@@ -12,10 +12,6 @@ import Button from "@/ui/Button";
 import { AddCustomer } from "@/lib/mutations/customer";
 
 
-
-
-
-
 const schema = z.object({
     name: z.string().min(1, "Name is required").max(20, "First name must be 20 characters or less"),
     email: z.email("Please enter a valid email address"),
@@ -36,7 +32,7 @@ type FormFields = z.infer<typeof schema>;
 export default function OrderForm() {
       const {clearCart } = useCartStore();
       const router = useRouter();
-      const { register, handleSubmit, formState: { errors } } = useForm<FormFields>({
+      const { register, handleSubmit, formState: { errors, isSubmitting: loading },  } = useForm<FormFields>({
         resolver: zodResolver(schema)
 
     });
@@ -86,7 +82,7 @@ export default function OrderForm() {
             </div>
 
         <div className="flex mt-5 sm:gap-30 gap-10">
-  <Button submit={true} text="Confirm" />
+  <Button isPending={loading} isPendingText="Submitting" submit={true} text="Confirm" />
   <div className="flex gap-2">
     <Link href={'/menu'}><Button text="Go back"/></Link>
 
