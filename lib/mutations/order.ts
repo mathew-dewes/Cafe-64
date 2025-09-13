@@ -62,7 +62,7 @@ export async function placeOrder(customer_id: string, items: CartItem[], status:
 export async function markOrderComplete(orderId: string) {
   const order = await prisma.order.update({
     where: { id: orderId },
-    data: { status: OrderStatus.COMPLETE },
+    data: { status: OrderStatus.complete },
   });
     revalidatePath('/admin')
   return order;

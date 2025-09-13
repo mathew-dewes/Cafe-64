@@ -39,7 +39,7 @@ export default function MobileMenuLinks({ isMenuOpen, onClose, session }: Button
           const handleSignOut = async () =>{
                    await signOut();
                    onClose()
-                   router.push("/dashboard/auth")
+                   router.push("/")
                    
                }
   

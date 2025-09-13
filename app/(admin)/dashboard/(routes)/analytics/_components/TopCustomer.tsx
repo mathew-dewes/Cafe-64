@@ -10,7 +10,7 @@ export default function TopCustomers({customers}:
     {customers: CustomerStat[]}
 ){
     return (
-                   <div>
+                   <div className="flex flex-col gap-2 mt-2">
        <h1>Highest spending customers</h1>
        <div>
 

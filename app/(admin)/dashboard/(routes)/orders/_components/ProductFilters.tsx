@@ -21,7 +21,7 @@ export default function ProductFilters({ status, orderBy, direction }: ProductFi
  
 
     return (
-        <Form action={filterOrders} className="flex flex-col sm:flex-row gap-5 items-center">
+        <Form action={filterOrders} className="flex flex-col lg:flex-row gap-5 items-center">
             <div className='flex gap-5'>
                 <div>
                     <p className="mb-1 text-base font-semibold text-center">Status</p>

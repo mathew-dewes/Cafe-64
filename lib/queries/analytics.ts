@@ -12,9 +12,9 @@ export async function getStats(){
   const thisMonth = new Date(now.getFullYear(), now.getMonth(), 1);
 
     const [dailyRevenue, weeklyRevenue, monthlyRevenue, ordersByStatus, avgOrderValue, totalOrders] = await Promise.all([
-    prisma.order.aggregate({ _sum: { total_price: true }, where: { created_at: { gte: today }, status: "COMPLETE" } }),
-    prisma.order.aggregate({ _sum: { total_price: true }, where: { created_at: { gte: thisWeek }, status: "COMPLETE" } }),
-    prisma.order.aggregate({ _sum: { total_price: true }, where: { created_at: { gte: thisMonth }, status: "COMPLETE" } }),
+    prisma.order.aggregate({ _sum: { total_price: true }, where: { created_at: { gte: today }, status: "complete" } }),
+    prisma.order.aggregate({ _sum: { total_price: true }, where: { created_at: { gte: thisWeek }, status: "complete" } }),
+    prisma.order.aggregate({ _sum: { total_price: true }, where: { created_at: { gte: thisMonth }, status: "complete" } }),
     prisma.order.groupBy({ by: ["status"], _count: { _all: true } }),
     prisma.order.aggregate({ _avg: { total_price: true } }),
     prisma.order.count()
@@ -25,8 +25,8 @@ export async function getStats(){
     weeklyRevenue: weeklyRevenue._sum.total_price ?? 0,
     monthlyRevenue: monthlyRevenue._sum.total_price ?? 0,
     averageOrderValue: avgOrderValue._avg.total_price ?? 0,
-    openOrders: ordersByStatus.find(o => o.status !== "COMPLETE")?._count._all ?? 0,
-    completedOrders: ordersByStatus.find(o => o.status === "COMPLETE")?._count._all ?? 0,
+    openOrders: ordersByStatus.find(o => o.status !== "complete")?._count._all ?? 0,
+    completedOrders: ordersByStatus.find(o => o.status === "complete")?._count._all ?? 0,
     canceledOrders: "TBC",
     totalOrders
   };

@@ -18,13 +18,13 @@ export default function OrderCard(
     let style;
 
    switch(currentStatus){
-    case "COMPLETE":
+    case "complete":
         style = "border-green-300"
         break
-    case "PENDING":
+    case "pending":
         style = "border-orange-300"
         break
-    case "READY":
+    case "ready":
         style = "border-blue-300"
         break
    }
@@ -34,7 +34,7 @@ export default function OrderCard(
   }
 
     return (
-                 <div className={`font-light flex gap-3 sm:gap-10 mt-5 w-fit py-8 border-4 px-2 sm:px-10 rounded-xl bg-gray-100 ${changeStatusColor(order.status)}`}>
+                 <div className={`font-light w-full lg:w-fit mt-5  py-8 border-4 px-2 sm:px-10 rounded-xl bg-gray-100 ${changeStatusColor(order.status)}`}>
                         <div className="flex flex-col gap-2">
  <p>{date} - {time}</p>
       <p className="mt-1"><span className="font-semibold">Customer:</span> {order.customer?.name}</p>

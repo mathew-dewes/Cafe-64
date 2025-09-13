@@ -25,7 +25,7 @@ export default function Navigation({ session }:
 
     const handleSignOut = async () => {
         await signOut();
-        router.push("/dashboard/auth")
+        router.push("/")
 
     }
 

@@ -23,8 +23,11 @@ export default async function page({params}:
 
     return (
         <div>
-            <h1>You order was placed successfully!</h1>
-            <p className="mt-5">Please take note of your order number below and let our staff who you are upon arrival</p>
+            <div>
+         <h1>You order was placed successfully!</h1>
+            <p className="mt-5">Our staff will prepare your order shortly. Upon arrival, please listen for your name which will be called once ready. Thank you for using our new ordering system</p>
+            </div>
+   
             <div className="mt-10">
                 <h2>Order: {order.orderNumber}</h2>
                 <div className="mt-5">

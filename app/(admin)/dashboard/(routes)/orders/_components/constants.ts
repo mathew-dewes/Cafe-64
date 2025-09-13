@@ -17,9 +17,9 @@ export const sugarLevel = [
 
 export const orderStatus = [
     { value: "", text: "View All" },
-  { value: "READY", text: "Ready" },
-  { value: "PENDING", text: "Pending" },
-  { value: "COMPLETE", text: "Complete" },
+  { value: "ready", text: "Ready" },
+  { value: "pending", text: "Pending" },
+  { value: "complete", text: "Complete" },
 ] 
 
 export const orderByOptions = [

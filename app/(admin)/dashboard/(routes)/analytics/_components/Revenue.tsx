@@ -11,9 +11,12 @@ export default function Revenue({dailyRevenue, weeklyRevenue, monthlyRevenue}: R
     return (
          <div>
                     <h1>Revenue</h1>
-                    <p>Daily: ${dailyRevenue}</p>
+                    <div className="flex flex-col gap-2 mt-2">
+                                          <p>Daily: ${dailyRevenue}</p>
                     <p>Weekly: ${weeklyRevenue}</p>
                     <p>Monthly: ${monthlyRevenue}</p>
+                    </div>
+  
                 </div>
     )
 }

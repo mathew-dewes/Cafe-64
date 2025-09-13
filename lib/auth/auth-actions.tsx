@@ -30,7 +30,6 @@ export const signIn = async (email: string, password: string)=>{
      
     });
 
-    console.log(result);
     
 
 

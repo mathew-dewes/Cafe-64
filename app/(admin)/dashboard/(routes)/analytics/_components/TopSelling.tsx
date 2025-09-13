@@ -14,7 +14,7 @@ type SalesReport = {
 export default function TopSelling({products}: {products: SalesReport}
 ){
     return (
-        <div>
+        <div className="flex flex-col gap-2 mt-2">
                   <h1>Top selling products</h1>
 <div>
                         {products.topSelling.map((product, key)=>{

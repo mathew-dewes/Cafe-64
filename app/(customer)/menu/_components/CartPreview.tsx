@@ -11,9 +11,11 @@ import { useCartStore } from "../../_hooks/cart-store";
 export default function CartPreview(){
     const {items, removeItem, clearCart} = useCartStore();
 
+    
+
     if (items.length < 1) return (
         <div>
-            <p className="text-center md:text-left font-semibold">Welcome to our new ordering system!</p>
+            <p className="text-center text-xl md:text-left font-semibold">Welcome to our new ordering system!</p>
             <p className="text-center md:text-left mt-2">Your cart is currently empty. Please add items from the list below to see them here</p>
         </div>
     )
@@ -25,8 +27,7 @@ export default function CartPreview(){
  {items.map((item, key)=>{
                 return (
                     <div className="flex flex-col md:flex-row sm:items-center gap-3 py-3 rounded" key={key}>
-                        <p><span className="font-semibold">{item.name}</span> x {item.quantity} - ({item.milk} milk, {item.sugar} sugar, size 
-                        <span className="lowercase"> {item.size}</span>) - ${item.price * item.quantity}</p>
+                        <p><span className="font-semibold">{item.size} {item.name}</span> x {item.quantity} - ({item.milk} milk, {item.sugar} sugar) - ${item.price * item.quantity}</p>
                         <div>
                             <button onClick={()=>removeItem(item.id, item.milk, item.sugar, item.size)} className="flex gap-1 items-center mb-1 cursor-pointer hover:text-accent-500">
 

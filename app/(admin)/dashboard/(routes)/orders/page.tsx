@@ -26,7 +26,7 @@ export default async function page({
     
     return (
         <div>
-                <div className="flex flex-col items-center md:items-start">
+                <div className="flex flex-col items-center lg:items-start">
               
                 <h2 className="mb-3">Filters</h2>
                 <ProductFilters 

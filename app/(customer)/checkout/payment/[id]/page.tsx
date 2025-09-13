@@ -27,9 +27,9 @@ if (!customer) return
 
   return (
     <div>
-      <h1 className="text-2xl font-bold">Payment</h1>
-      <p className="mt-2">Please confirm you details below and click on one payment methods below to proceed</p>
-      <div className="mt-10">
+      <h1 className="text-2xl font-bold">Payment pending</h1>
+      <p className="mt-2">Please confirm your contact details below and click on your desired payment method to proceed</p>
+      <div className="mt-10 flex flex-col gap-1">
         <p><b>Customer:</b> {customer.name}</p>
         <p><b>Email:</b> {customer.email}</p>
         <p><b>Phone:</b> {customer.phone}</p>
@@ -43,16 +43,18 @@ if (!customer) return
   
 
     <div className="mt-10">
-<h2>Payment methods:</h2>
-<div className="mt-3">
-<p><b>Attention:</b> To use the pay with card feature, please using the test card number below</p>
-<div className="mt-2 flex flex-col gap-1">
-    <p ><b>Card number:</b>  4242 4242 4242 4242</p>
+
+<div className="mt-5">
+  <h2>Please note the following:</h2>
+<p className="mt-1">The pay with card feature is running on a test environment. When using this method, please use the card details below</p>
+<div className="mt-10 flex flex-col gap-2">
+    <p><b>Card number:</b>  4242 4242 4242 4242</p>
     <p><b>EXP:</b> Any future date</p>
     <p><b>CVC code:</b> Any 3 digits</p>
 </div>
 
 </div>
+<h2 className="mt-10">Payment methods:</h2>
 
 
     <div className="flex mt-5 gap-5">

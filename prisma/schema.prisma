@@ -50,7 +50,7 @@ model OrderItem {
   price       Float
   sugar_level Sugar_level
   milk_type   Milk_type
-  size        Drink_size  @default(MEDIUM)
+  size        Drink_size  @default(Medium)
   order_id    String
   product_id  String
 
@@ -65,9 +65,9 @@ enum Role {
 }
 
 enum OrderStatus {
-  PENDING
-  READY
-  COMPLETE
+  pending
+  ready
+  complete
 }
 
 enum PaymentMethod {
@@ -89,8 +89,8 @@ enum Sugar_level {
 }
 
 enum Drink_size {
-  MEDIUM
-  LARGE
+  Medium
+  Large
 }
 
 enum Milk_type {

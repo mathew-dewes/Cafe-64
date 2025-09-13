@@ -36,7 +36,7 @@ export default async function SuccessPage({ searchParams }:{
       },
       data:{
         paymentStatus:"paid",
-        status: "READY"
+        status: "ready"
 
   
       }

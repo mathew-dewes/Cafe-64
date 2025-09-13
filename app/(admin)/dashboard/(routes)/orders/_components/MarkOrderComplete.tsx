@@ -20,7 +20,7 @@ export default function MarkCompleteCheckbox({
   async function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.checked) {
       setIsAnimating(true); // start animation
-      setStatus(OrderStatus.COMPLETE);
+      setStatus(OrderStatus.complete);
 
       // wait for animation to finish (e.g., 300ms)
       setTimeout(async () => {
@@ -36,7 +36,7 @@ export default function MarkCompleteCheckbox({
     >
       <input
         type="checkbox"
-        checked={status === OrderStatus.COMPLETE}
+        checked={status === OrderStatus.complete}
         onChange={handleChange}
       />
       Mark as complete

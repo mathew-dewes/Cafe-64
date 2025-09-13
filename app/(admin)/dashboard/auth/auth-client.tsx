@@ -45,7 +45,7 @@ export default function AuthClientPage() {
         <div className="max-w-md w-full space-y-8">
           <div className="text-center">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Cafe64 dashboard
+              Dashboard
             </h1>
             <p className="text-gray-600">
              Please login with email and password to see analytics, products and order details

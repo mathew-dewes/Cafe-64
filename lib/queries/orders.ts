@@ -123,7 +123,7 @@ export async function generateOrderNumber(): Promise<string> {
     const existing = await prisma.order.findFirst({
       where: {
         orderNumber,
-        status: { not: "COMPLETE" }, 
+        status: { not: "complete" }, 
       },
     });
 
