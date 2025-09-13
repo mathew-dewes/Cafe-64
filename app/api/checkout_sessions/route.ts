@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     const { items, email, customer_id } = await req.json()
     const origin = req.headers.get("origin") || process.env.NEXT_PUBLIC_APP_URL!;
 
-        const order = await placeOrder(customer_id, items, 'PENDING', "card")
+        const order = await placeOrder(customer_id, items, 'pending', "card")
 
     const session = await stripe.checkout.sessions.create({
       customer_email: email,
